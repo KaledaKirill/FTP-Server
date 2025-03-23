@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "socket.h": "c",
-        "unistd.h": "c",
-        "inet.h": "c",
-        "save_socket.h": "c"
-    }
-}
