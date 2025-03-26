@@ -8,7 +8,6 @@
 #include <sys/socket.h>
 
 #define FTP_PORT 21
-#define DATA_PORT 20
 #define BUFFER_SIZE 1024
 
 typedef enum
@@ -27,23 +26,36 @@ void send_response(int client_sock, const char *response)
 
 int connect_to_active_mode(struct sockaddr_in *client_data_addr) 
 {
-    int data_sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (data_sock == -1) 
-    {
-        perror("Error creating data socket");
-        return -1;
-    }
-
-    if (connect(data_sock, (struct sockaddr*)client_data_addr, sizeof(*client_data_addr)) == -1) 
-    {
-        perror("Error connecting to data port in active mode");
-        close(data_sock);
-        return -1;
-    }
+    int data_sock = socket_s(AF_INET, SOCK_STREAM, 0);
+    connect_s(data_sock, (struct sockaddr*)client_data_addr, sizeof(*client_data_addr));
 
     return data_sock;
 }
 
+int create_data_connection(int client_sock, int pasv_listen_sock, struct sock_addr_in *client_data_addr)
+{   
+    int data_sock = -1;
+
+    if (data_trans_mode = NONE_MODE)
+    {
+        send_response(client_sock, "425 No data connection mode set.\r\n");
+    }
+    else if (data_trans_mode == ACTIVE_MODE) 
+    {
+        data_sock = connect_to_active_mode(&client_data_addr);
+    } 
+    else if (data_trans_mode == PASSIVE_MODE) 
+    {
+        data_sock = accept(pasv_listen_sock, NULL, NULL);
+    } 
+    
+    if (data_sock == -1)
+    {
+        send_response(client_sock, "425 Can't open data connection.\r\n");
+    }
+
+    return data_sock;
+}
 
 int accept_pasv_connection(int pasv_listen_sock) 
 {
@@ -66,7 +78,7 @@ int pasv(int client_sock)
         return -1;
     }
 
-    struct sockaddr_in pasv_addr = { 0 };  // Инициализация структуры
+    struct sockaddr_in pasv_addr = { 0 };
     pasv_addr.sin_family = AF_INET;
     pasv_addr.sin_addr.s_addr = INADDR_ANY;
     pasv_addr.sin_port = 0;
@@ -86,17 +98,17 @@ int pasv(int client_sock)
         return -1;
     }
 
-    if (listen(pasv_listen_sock, 1) < 0)
+    if (listen(pasv_listen_sock, 1) == -1)
     {
         send_response(client_sock, "425 Cannot listen on passive socket.\r\n");
         close(pasv_listen_sock);
         return -1;
     }
 
-    // Получаем IP и порт для ответа клиенту
     int p1 = ntohs(pasv_addr.sin_port) / 256;
     int p2 = ntohs(pasv_addr.sin_port) % 256;
-    char ip_str[16] = "192,168,119,16"; // Локальный IP (для тестов)
+    //char ip_str[16] = "192,168,119,16"; // Локальный IP (для тестов) 
+    char ip_str[16] = "127,0,0,1"; //TODO: use dynamic ip adress 
 
     char response[64];
     snprintf(response, sizeof(response), "227 Entering Passive Mode (%s,%d,%d).\r\n", ip_str, p1, p2);
@@ -106,7 +118,6 @@ int pasv(int client_sock)
     return pasv_listen_sock;
 }
 
-// Обработка команды TYPE
 int type(int client_sock, char *buffer)
 {
     if (strncmp(buffer, "TYPE I", 6) == 0) 
@@ -125,14 +136,11 @@ int type(int client_sock, char *buffer)
     return 0;
 }
 
-
-// Обработка команды CWD (изменение рабочей директории)
 int cwd(int client_sock, char *buffer)
 {
     char path[BUFFER_SIZE];
     if (sscanf(buffer, "CWD %s", path) == 1)
     {
-        // Пытаемся сменить директорию
         if (chdir(path) == 0)
         {
             send_response(client_sock, "250 Requested file action okay, completed.\r\n");
@@ -156,11 +164,8 @@ int pwd(int client_sock)
     if (getcwd(cwd, sizeof(cwd)) != NULL)
     {
         char response[BUFFER_SIZE];
-
-        // Adjust the size of the formatted string
         int len = snprintf(response, sizeof(response), "257 \"%s\" is the current directory.\r\n", cwd);
 
-        // Ensure no truncation occurs
         if (len >= (int)sizeof(response)) {
             send_response(client_sock, "550 Current directory path is too long.\r\n");
         } else {
@@ -217,15 +222,10 @@ int port(int client_sock, char *buffer, struct sockaddr_in *client_data_addr)
     return -1;
 }
 
-
-
-// Обработка команды LIST (список файлов)
 int list(int client_sock, int data_sock) 
 {
-    // Отправляем ответ для начала передачи данных
     send_response(client_sock, "150 Here comes the directory listing.\r\n");
 
-    // Отправляем список файлов
     FILE *fp = popen("ls", "r");
     if (fp)
     {
@@ -236,14 +236,12 @@ int list(int client_sock, int data_sock)
         pclose(fp);
     }
 
-    // Закрываем соединение для передачи данных
     close(data_sock);
     send_response(client_sock, "226 Directory send OK.\r\n");
 
     return 0;
 }
 
-// Обработка команды STOR (загрузка файла на сервер)
 int stor(int client_sock, int data_sock, char *buffer) 
 {
     char filename[BUFFER_SIZE];
@@ -254,7 +252,6 @@ int stor(int client_sock, int data_sock, char *buffer)
         {
             send_response(client_sock, "150 File status okay; about to open data connection.\r\n");
 
-            // Теперь читаем данные от клиента и записываем их в файл
             char data_buffer[BUFFER_SIZE];
             int bytes_received;
             while ((bytes_received = recv(data_sock, data_buffer, sizeof(data_buffer), 0)) > 0) 
@@ -278,7 +275,6 @@ int stor(int client_sock, int data_sock, char *buffer)
     return 0;
 }
 
-// Обработка команды RETR (скачивание файла с сервера)
 int retr(int client_sock, int data_sock, char *buffer)
 {
     char filename[BUFFER_SIZE];
@@ -289,7 +285,6 @@ int retr(int client_sock, int data_sock, char *buffer)
         {
             send_response(client_sock, "150 File status okay; about to open data connection.\r\n");
 
-            // Читаем файл и отправляем данные клиенту
             char data_buffer[BUFFER_SIZE];
             int bytes_read;
             while ((bytes_read = fread(data_buffer, 1, sizeof(data_buffer), file)) > 0)
@@ -322,10 +317,9 @@ void close_data_connection(int data_sock)
     }
 }
 
-// Основная функция для обработки клиента
 void handle_client(int client_sock) 
 {
-    char buffer[BUFFER_SIZE];
+    char buffer[BUFFER_SIZE] = { 0 };
     int quit_res = 0;
     struct sockaddr_in client_data_addr = { 0 };
     int pasv_listen_sock = -1;
@@ -344,8 +338,7 @@ void handle_client(int client_sock)
 
         printf("Received: %s", buffer);
 
-        // Process commands
-        if (strncmp(buffer, "USER ", 5) == 0) 
+        if (strncmp(buffer, "USER ", 5) == 0)
         {
             user(client_sock);
         } 
@@ -363,52 +356,28 @@ void handle_client(int client_sock)
         } 
         else if (strncmp(buffer, "LIST", 4) == 0) 
         {
-            if (data_trans_mode == ACTIVE_MODE) 
-            {
-                data_sock = connect_to_active_mode(&client_data_addr);
-            } 
-            else if (data_trans_mode == PASSIVE_MODE) 
-            {
-                data_sock = accept(pasv_listen_sock, NULL, NULL);
-            } 
-            else
-            {
-                send_response(client_sock, "425 No data connection mode set.\r\n");
-            }
+            data_sock = create_data_connection(client_sock, pasv_listen_sock, &client_data_addr);
+            if (data_sock == -1)
+                continue;
+
             list(client_sock, data_sock);
             close_data_connection(data_sock);
         }
         else if (strncmp(buffer, "STOR", 4) == 0) 
         {
-            if (data_trans_mode == ACTIVE_MODE) 
-            {
-                data_sock = connect_to_active_mode(&client_data_addr);
-            } 
-            else if (data_trans_mode == PASSIVE_MODE) 
-            {
-                data_sock = accept(pasv_listen_sock, NULL, NULL);
-            } 
-            else
-            {
-                send_response(client_sock, "425 No data connection mode set.\r\n");
-            }
+            data_sock = create_data_connection(client_sock, pasv_listen_sock, &client_data_addr);
+            if (data_sock == -1)
+                continue;
+
             stor(client_sock, data_sock, buffer);
             close_data_connection(data_sock);
         } 
         else if (strncmp(buffer, "RETR", 4) == 0) 
         {
-            if (data_trans_mode == ACTIVE_MODE) 
-            {
-                data_sock = connect_to_active_mode(&client_data_addr);
-            } 
-            else if (data_trans_mode == PASSIVE_MODE) 
-            {
-                data_sock = accept(pasv_listen_sock, NULL, NULL);
-            } 
-            else
-            {
-                send_response(client_sock, "425 No data connection mode set.\r\n");
-            }
+            data_sock = create_data_connection(client_sock, pasv_listen_sock, &client_data_addr);
+            if (data_sock == -1)
+                continue;
+
             retr(client_sock, data_sock, buffer);
             close_data_connection(data_sock);
         }
@@ -436,8 +405,6 @@ void handle_client(int client_sock)
 
     close(client_sock);
 }
-
-
 
 int main() 
 {
