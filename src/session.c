@@ -7,6 +7,7 @@
 
 #include "session.h"
 #include "logger.h"
+#include "data_transfer.h"
 
 void init_session(ftp_session *session, int client_sock) 
 {
@@ -14,7 +15,7 @@ void init_session(ftp_session *session, int client_sock)
     session->authenticated = 0;
     memset(session->username, 0, sizeof(session->username));
     
-    const char *default_root = "/home/kirill/ftp_root"; //TODO: replace into config file
+    const char *default_root = "/home/kirill/ftp_root";         //TODO: replace into config file
     strncpy(session->root_dir, default_root, sizeof(session->root_dir) - 1);
     
     struct stat st;
@@ -25,6 +26,12 @@ void init_session(ftp_session *session, int client_sock)
     }
     
     strncpy(session->cwd, "/", sizeof(session->cwd) - 1);
+
+    session->data_sock = -1;
+    memset(&session->data_addr, 0, sizeof(session->data_addr));
+    session->data_connection = NONE;
+    session->transfer_type = TYPE_ASCII;
+
     log_infof("Session initialized for client %d with root_dir: %s", client_sock, session->root_dir);
 }
 
@@ -109,4 +116,5 @@ void close_session(ftp_session *session)
         log_infof("Session closed for client %d", session->client_sock);
         session->client_sock = -1;
     }
+    close_data_connection(session);
 }

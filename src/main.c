@@ -11,6 +11,7 @@ int main()
     { 
         .port = 21, 
         .ip_addr = "127.0.0.1" 
+        //.ip_addr = "192.168.119.16" 
     };
 
     if (init_network(&net_config) < 0) 
