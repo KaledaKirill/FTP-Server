@@ -12,7 +12,7 @@
 #include "session.h"
 #include "data_transfer.h"
 #include "logger.h"
-
+#include "auth.h"
 
 static ftp_command command_table[] = 
 {
@@ -126,31 +126,61 @@ int process_command(ftp_session *session, char *buffer)
     return 0;
 }
 
-int cmd_user(ftp_session *session, parsed_command *parced_cmd) 
+int cmd_user(ftp_session *session, parsed_command *parsed_cmd) 
 {
-    if (!parced_cmd->args) 
+    if (!parsed_cmd->args) 
     {
+        log_errorf("No username provided for USER command");
         send_response(session, "501 Syntax error in parameters.\r\n");
         return 0;
     }
 
-    strncpy(session->username, parced_cmd->args, sizeof(session->username) - 1);
+    if (strlen(parsed_cmd->args) >= sizeof(session->username)) 
+    {
+        log_errorf("Username too long: %s", parsed_cmd->args);
+        send_response(session, "501 Username too long.\r\n");
+        return 0;
+    }
+
+    if (!user_exists(parsed_cmd->args)) 
+    {
+        log_infof("Unknown user: %s", parsed_cmd->args);
+        send_response(session, "530 Not logged in.\r\n");
+        return 0;
+    }
+
+    strncpy(session->username, parsed_cmd->args, sizeof(session->username) - 1);
+    session->username[sizeof(session->username) - 1] = '\0';
+    log_infof("User %s provided, awaiting password", session->username);
     send_response(session, "331 User name okay, need password.\r\n");
     return 0;
 }
 
-int cmd_pass(ftp_session *session, parsed_command *parced_cmd) 
+int cmd_pass(ftp_session *session, parsed_command *parsed_cmd) 
 {
-    if (!parced_cmd->args) 
+    if (!parsed_cmd->args) 
     {
+        log_errorf("No password provided for PASS command");
         send_response(session, "501 Syntax error in parameters.\r\n");
         return 0;
     }
 
-    if (authenticate_user(session, session->username, parced_cmd->args)) 
+    if (strlen(session->username) == 0) 
+    {
+        log_errorf("No username provided before PASS");
+        send_response(session, "503 Bad sequence of commands.\r\n");
+        return 0;
+    }
+
+    if (authenticate(session, session->username, parsed_cmd->args)) 
+    {
         send_response(session, "230 User logged in, proceed.\r\n");
-    else
-        send_response(session, "530 Login incorrect.\r\n");
+    } 
+    else 
+    {
+        send_response(session, "530 Invalid password.\r\n");
+        session->username[0] = '\0';
+    }
     
     return 0;
 }
@@ -292,7 +322,8 @@ int cmd_pasv(ftp_session *session, parsed_command *parsed)
     unsigned int p2 = port % 256;
 
     char response[BUFFER_SIZE];
-    snprintf(response, sizeof(response), "227 Entering Passive Mode (127,0,0,1,%u,%u).\r\n", p1, p2); //TODO: replace on real ip
+    //snprintf(response, sizeof(response), "227 Entering Passive Mode (192,168,119,16,%u,%u).\r\n", p1, p2); //TODO: replace on real ip
+    snprintf(response, sizeof(response), "227 Entering Passive Mode (127,0,0,1,%u,%u).\r\n", p1, p2);
     send_response(session, response);
 
     session->data_connection = PASSIVE;

@@ -4,6 +4,7 @@
 #include "session.h"
 #include "commands.h"
 #include "logger.h"
+#include "auth.h"
 
 int main() 
 {
@@ -13,6 +14,12 @@ int main()
         .ip_addr = "127.0.0.1" 
         //.ip_addr = "192.168.119.16" 
     };
+
+    if (init("./users.conf") != 0) 
+    {
+        log_errorf("Failed to initialize authentication module");
+        return 1;
+    }
 
     if (init_network(&net_config) < 0) 
     {
@@ -50,6 +57,7 @@ int main()
         close_session(&session);
     }
 
+    auth_cleanup();
     close_network(&net_config);
     return 0;
 }
