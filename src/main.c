@@ -21,7 +21,13 @@ int main()
         return 1;
     }
 
-    if (init_network(&net_config) < 0) 
+    if (logger_init("./ftp_logs.log") != 0)
+    {
+        log_errorf("Failed to initialize logger");
+        return 1;
+    }
+
+    if (init_network(&net_config) != 0) 
     {
         log_error("Failed to initialize network");
         return 1;

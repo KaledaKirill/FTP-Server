@@ -1,0 +1,99 @@
+[2025-04-20 11:57:04] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-20 11:57:04] INFO: Server listening on 127.0.0.1:21
+[2025-04-20 11:57:14] INFO: Client connected: 5
+[2025-04-20 11:57:14] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-20 11:57:14] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-20 11:57:17] INFO: Received from client 5: USER test
+
+[2025-04-20 11:57:17] INFO: User test provided, awaiting password
+[2025-04-20 11:57:17] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-20 11:57:21] INFO: Received from client 5: PASS 1234
+
+[2025-04-20 11:57:21] INFO: Successful login for user test
+[2025-04-20 11:57:21] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-20 11:57:21] INFO: Received from client 5: SYST
+
+[2025-04-20 11:57:21] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:57:21] INFO: Received from client 5: FEAT
+
+[2025-04-20 11:57:21] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:57:27] INFO: Received from client 5: EPSV
+
+[2025-04-20 11:57:27] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:57:27] INFO: Received from client 5: PASV
+
+[2025-04-20 11:57:27] INFO: Data connection closed
+[2025-04-20 11:57:27] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,131,41).
+
+[2025-04-20 11:57:27] INFO: PASV mode enabled, listening on port 33577
+[2025-04-20 11:57:27] INFO: Received from client 5: LIST
+
+[2025-04-20 11:57:27] INFO: Passive data connection established from client
+[2025-04-20 11:57:27] INFO: Sent to client 5: 150 Opening ASCII mode data connection for file list.
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--       13 Apr 17 22:43 remote.txt
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--      227 Apr 17 23:12 remote_dir.tar.gz
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--      163 Apr 17 22:43 ._remote.txt
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--        0 Apr 18 11:38 3
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--       13 Apr 17 15:29 file.txt
+
+[2025-04-20 11:57:27] INFO: Sent data: drwxr-xr-x     4096 Apr 18 00:15 subdir
+
+[2025-04-20 11:57:27] INFO: Sent data: drwxr-xr-x     4096 Apr 17 17:07 remote_dir
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--      366 Apr 17 22:51 da.tar.gz
+
+[2025-04-20 11:57:27] INFO: Sent data: -rw-r--r--       31 Apr 18 11:20 hello.txt
+
+[2025-04-20 11:57:27] INFO: Data connection closed
+[2025-04-20 11:57:27] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-20 11:57:36] INFO: Received from client 5: PASV
+
+[2025-04-20 11:57:36] INFO: Data connection closed
+[2025-04-20 11:57:36] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,131,1).
+
+[2025-04-20 11:57:36] INFO: PASV mode enabled, listening on port 33537
+[2025-04-20 11:57:36] INFO: Received from client 5: NLST
+
+[2025-04-20 11:57:36] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:57:41] INFO: Received from client 5: SIZE file.txt
+
+[2025-04-20 11:57:41] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:57:41] INFO: Received from client 5: PASV
+
+[2025-04-20 11:57:41] INFO: Data connection closed
+[2025-04-20 11:57:41] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,133,103).
+
+[2025-04-20 11:57:41] INFO: PASV mode enabled, listening on port 34151
+[2025-04-20 11:57:41] INFO: Received from client 5: RETR file.txt
+
+[2025-04-20 11:57:41] INFO: Passive data connection established from client
+[2025-04-20 11:57:41] INFO: Sent to client 5: 150 Opening data connection for file transfer.
+
+[2025-04-20 11:57:41] INFO: Data connection closed
+[2025-04-20 11:57:41] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-20 11:57:41] INFO: File /home/kirill/ftp_root//file.txt retrieved successfully
+[2025-04-20 11:57:41] INFO: Received from client 5: MDTM file.txt
+
+[2025-04-20 11:57:41] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-20 11:58:21] INFO: Received from client 5: QUIT
+
+[2025-04-20 11:58:21] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-20 11:58:21] INFO: Session closed for client 5
+[2025-04-20 11:58:21] INFO: Data connection closed

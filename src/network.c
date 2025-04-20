@@ -6,6 +6,12 @@
 
 int init_network(network_config *config)
 {
+    if (!config)
+    {
+        log_error("Net config is empty!");
+        return -1;
+    }
+
     config->server_sock = socket(AF_INET, SOCK_STREAM, 0);
     if (config->server_sock < 0) 
     {
