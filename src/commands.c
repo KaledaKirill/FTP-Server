@@ -63,6 +63,52 @@ static int is_path_safe(const char *root_dir, const char *path)
     return 1;
 }
 
+static int format_ip_for_pasv(const char *ip, char *buffer, size_t buffer_size) 
+{
+    if (!ip || !buffer || buffer_size < 16)
+    {
+        log_error("Invalid arguments to format_ip_for_pasv");
+        if (buffer && buffer_size > 0) buffer[0] = '\0';
+        return -1;
+    }
+
+    char ip_copy[INET_ADDRSTRLEN];
+    strncpy(ip_copy, ip, sizeof(ip_copy) - 1);
+    ip_copy[sizeof(ip_copy) - 1] = '\0';
+
+    char *octet = strtok(ip_copy, ".");
+    size_t offset = 0;
+    int first = 1;
+
+    while (octet && offset < buffer_size - 1) 
+    {
+        if (!first) 
+            buffer[offset++] = ',';
+        
+        first = 0;
+
+        size_t len = strlen(octet);
+        if (offset + len >= buffer_size - 1) 
+            break;
+
+        strncpy(buffer + offset, octet, buffer_size - offset - 1);
+        offset += len;
+
+        octet = strtok(NULL, ".");
+    }
+
+    buffer[offset] = '\0';
+
+    if (octet || offset == 0) 
+    {
+        log_errorf("Invalid IP address format: %s", ip);
+        buffer[0] = '\0';
+        return -1;
+    }
+
+    return 0;
+}
+
 parsed_command parse_command(char *buffer) 
 {
     parsed_command result = 
@@ -317,13 +363,19 @@ int cmd_pasv(ftp_session *session, parsed_command *parsed)
         return 0;
     }
 
+    char ip_formatted[16];
+    if (format_ip_for_pasv(session->pasv_ip, ip_formatted, sizeof(ip_formatted)) != 0)
+    {
+        log_errorf("Failed to format ip");\
+        return 0;
+    }
+
     unsigned int port = ntohs(pasv_addr.sin_port);
     unsigned int p1 = port / 256;
     unsigned int p2 = port % 256;
 
     char response[BUFFER_SIZE];
-    //snprintf(response, sizeof(response), "227 Entering Passive Mode (192,168,119,16,%u,%u).\r\n", p1, p2); //TODO: replace on real ip
-    snprintf(response, sizeof(response), "227 Entering Passive Mode (127,0,0,1,%u,%u).\r\n", p1, p2);
+    snprintf(response, sizeof(response), "227 Entering Passive Mode (%s,%u,%u).\r\n", ip_formatted, p1, p2);
     send_response(session, response);
 
     session->data_connection = PASSIVE;

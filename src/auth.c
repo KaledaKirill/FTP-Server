@@ -15,7 +15,7 @@ typedef struct
 static user_t *users = NULL;
 static size_t user_count = 0;
 
-int init(const char *users_file) 
+int auth_init(const char *users_file) 
 {
     FILE *file = fopen(users_file, "r");
     if (!file) 

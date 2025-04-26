@@ -3,6 +3,8 @@
 
 #include <arpa/inet.h>
 
+#include "config.h"
+
 #define BUFFER_SIZE 4096
 #define USERNAME_LEN 32
 #define PATH_MAX 4096
@@ -33,11 +35,11 @@ typedef struct
     struct sockaddr_in data_addr;
     connection_type data_connection;
     transfer_type transfer_type;
+    char pasv_ip[INET_ADDRSTRLEN];
 } ftp_session;
 
-void init_session(ftp_session *session, int client_sock);
+int init_session(ftp_session *session, int client_sock, const config *config);
 void send_response(ftp_session *session, const char *response);
-int authenticate_user(ftp_session *session, const char *username, const char *password);
 int change_directory(ftp_session *session, const char *new_dir);
 void close_session(ftp_session *session);
 

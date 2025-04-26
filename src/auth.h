@@ -3,7 +3,7 @@
 
 #include "session.h"
 
-int init(const char *users_file);
+int auth_init(const char *users_file);
 
 int user_exists(const char *username);
 

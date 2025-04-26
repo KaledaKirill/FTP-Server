@@ -97,3 +97,595 @@
 
 [2025-04-20 11:58:21] INFO: Session closed for client 5
 [2025-04-20 11:58:21] INFO: Data connection closed
+[2025-04-24 19:04:18] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:04:18] INFO: Server listening on 127.0.0.1:21
+[2025-04-24 19:04:34] INFO: Client connected: 5
+[2025-04-24 19:04:34] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:04:34] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:04:59] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:04:59] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:04:59] INFO: Session closed for client 5
+[2025-04-24 19:04:59] INFO: Data connection closed
+[2025-04-24 19:05:07] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:05:07] INFO: Server listening on 127.0.0.1:21
+[2025-04-24 19:05:25] INFO: Client connected: 5
+[2025-04-24 19:05:25] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:05:25] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:05:46] INFO: Received from client 5: USER test
+
+[2025-04-24 19:05:46] INFO: User test provided, awaiting password
+[2025-04-24 19:05:46] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:05:48] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:05:48] INFO: Successful login for user test
+[2025-04-24 19:05:48] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:05:48] INFO: Received from client 5: SYST
+
+[2025-04-24 19:05:48] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-24 19:05:48] INFO: Received from client 5: FEAT
+
+[2025-04-24 19:05:48] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-24 19:14:37] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:14:37] ERROR: Bind failed: Cannot assign requested address
+[2025-04-24 19:14:37] ERROR: Failed to initialize network: Cannot assign requested address
+[2025-04-24 19:16:01] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:16:01] ERROR: Bind failed: Cannot assign requested address
+[2025-04-24 19:16:01] ERROR: Failed to initialize network: Cannot assign requested address
+[2025-04-24 19:17:22] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:17:22] ERROR: Bind failed: Cannot assign requested address
+[2025-04-24 19:17:22] ERROR: Failed to initialize network: Cannot assign requested address
+[2025-04-24 19:17:39] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:17:39] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:17:46] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:17:46] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:21:35] INFO: Client connected: 5
+[2025-04-24 19:21:35] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:21:35] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:21:36] INFO: Received from client 5: USER test
+
+[2025-04-24 19:21:36] INFO: User test provided, awaiting password
+[2025-04-24 19:21:36] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:21:37] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:21:37] INFO: Successful login for user test
+[2025-04-24 19:21:37] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:23:19] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:23:19] INFO: Transfer type set to ASCII
+[2025-04-24 19:23:19] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:23:21] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:23:21] INFO: Transfer type set to Binary
+[2025-04-24 19:23:21] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:24:00] INFO: Client 5 disconnected
+[2025-04-24 19:24:00] INFO: Session closed for client 5
+[2025-04-24 19:24:00] INFO: Data connection closed
+[2025-04-24 19:25:40] INFO: Client connected: 5
+[2025-04-24 19:25:40] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:25:40] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:25:40] INFO: Received from client 5: USER test
+
+[2025-04-24 19:25:40] INFO: User test provided, awaiting password
+[2025-04-24 19:25:40] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:25:40] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:25:40] INFO: Successful login for user test
+[2025-04-24 19:25:40] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:25:43] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:25:43] INFO: Transfer type set to ASCII
+[2025-04-24 19:25:43] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:25:43] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:25:43] INFO: Transfer type set to Binary
+[2025-04-24 19:25:43] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:25:55] INFO: Client 5 disconnected
+[2025-04-24 19:25:55] INFO: Session closed for client 5
+[2025-04-24 19:25:55] INFO: Data connection closed
+[2025-04-24 19:26:02] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:26:02] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:26:17] INFO: Client connected: 5
+[2025-04-24 19:26:17] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:26:17] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:26:17] INFO: Received from client 5: USER test
+
+[2025-04-24 19:26:17] INFO: User test provided, awaiting password
+[2025-04-24 19:26:17] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:26:17] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:26:17] INFO: Successful login for user test
+[2025-04-24 19:26:17] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:26:18] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:26:18] INFO: Transfer type set to ASCII
+[2025-04-24 19:26:18] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:26:18] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:26:18] INFO: Transfer type set to Binary
+[2025-04-24 19:26:18] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:26:22] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:26:22] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:26:22] INFO: Session closed for client 5
+[2025-04-24 19:26:22] INFO: Data connection closed
+[2025-04-24 19:26:34] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:26:34] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:28:11] INFO: Client connected: 5
+[2025-04-24 19:28:11] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:28:11] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:28:11] INFO: Received from client 5: USER test
+
+[2025-04-24 19:28:11] INFO: User test provided, awaiting password
+[2025-04-24 19:28:11] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:28:11] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:28:11] INFO: Successful login for user test
+[2025-04-24 19:28:11] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:28:15] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:28:15] INFO: Transfer type set to ASCII
+[2025-04-24 19:28:15] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:28:16] INFO: Received from client 5: PASV
+
+[2025-04-24 19:28:16] INFO: Data connection closed
+[2025-04-24 19:28:16] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,150,17).
+
+[2025-04-24 19:28:16] INFO: PASV mode enabled, listening on port 38417
+[2025-04-24 19:28:16] INFO: Received from client 5: LIST
+
+[2025-04-24 19:28:57] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:28:57] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:29:03] INFO: Client connected: 5
+[2025-04-24 19:29:03] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:29:03] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:29:03] INFO: Received from client 5: USER test
+
+[2025-04-24 19:29:03] INFO: User test provided, awaiting password
+[2025-04-24 19:29:03] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:29:03] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:29:03] INFO: Successful login for user test
+[2025-04-24 19:29:03] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:29:05] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:29:05] INFO: Transfer type set to ASCII
+[2025-04-24 19:29:05] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:29:05] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:29:05] INFO: Transfer type set to Binary
+[2025-04-24 19:29:05] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:29:41] INFO: Client 5 disconnected
+[2025-04-24 19:29:41] INFO: Session closed for client 5
+[2025-04-24 19:29:41] INFO: Data connection closed
+[2025-04-24 19:31:13] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:31:13] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:31:34] INFO: Client connected: 5
+[2025-04-24 19:31:34] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:31:34] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:31:34] INFO: Received from client 5: USER test
+
+[2025-04-24 19:31:34] INFO: User test provided, awaiting password
+[2025-04-24 19:31:34] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:31:34] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:31:34] INFO: Successful login for user test
+[2025-04-24 19:31:34] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:31:35] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:31:35] INFO: Transfer type set to ASCII
+[2025-04-24 19:31:35] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:31:35] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:31:35] INFO: Transfer type set to Binary
+[2025-04-24 19:31:35] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:31:46] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:31:46] INFO: Transfer type set to ASCII
+[2025-04-24 19:31:46] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:31:46] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:31:46] INFO: Transfer type set to Binary
+[2025-04-24 19:31:46] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:31:50] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:31:50] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:31:50] INFO: Session closed for client 5
+[2025-04-24 19:31:50] INFO: Data connection closed
+[2025-04-24 19:43:37] INFO: Client connected: 5
+[2025-04-24 19:43:37] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:43:37] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:43:38] INFO: Received from client 5: USER test
+
+[2025-04-24 19:43:38] INFO: User test provided, awaiting password
+[2025-04-24 19:43:38] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:43:39] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:43:39] INFO: Successful login for user test
+[2025-04-24 19:43:39] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:43:41] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:43:41] INFO: Transfer type set to ASCII
+[2025-04-24 19:43:41] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:43:42] INFO: Received from client 5: PORT 192,168,210,14,246,246
+
+[2025-04-24 19:43:42] INFO: PORT command: IP=192.168.210.14, Port=63222
+[2025-04-24 19:43:42] INFO: Sent to client 5: 200 PORT command successful.
+
+[2025-04-24 19:43:43] INFO: Received from client 5: LIST
+
+[2025-04-24 19:43:43] INFO: Active data connection established to client port 63222
+[2025-04-24 19:43:43] INFO: Sent to client 5: 150 Opening ASCII mode data connection for file list.
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--       13 Apr 17 22:43 remote.txt
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--      227 Apr 17 23:12 remote_dir.tar.gz
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--      163 Apr 17 22:43 ._remote.txt
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--        0 Apr 18 11:38 3
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--       13 Apr 17 15:29 file.txt
+
+[2025-04-24 19:43:43] INFO: Sent data: drwxr-xr-x     4096 Apr 18 00:15 subdir
+
+[2025-04-24 19:43:43] INFO: Sent data: drwxr-xr-x     4096 Apr 17 17:07 remote_dir
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--      366 Apr 17 22:51 da.tar.gz
+
+[2025-04-24 19:43:43] INFO: Sent data: -rw-r--r--       31 Apr 18 11:20 hello.txt
+
+[2025-04-24 19:43:43] INFO: Data connection closed
+[2025-04-24 19:43:43] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-24 19:43:45] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:43:45] INFO: Transfer type set to Binary
+[2025-04-24 19:43:45] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:45:12] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:45:12] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:45:23] INFO: Client connected: 5
+[2025-04-24 19:45:23] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:45:23] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:45:24] INFO: Received from client 5: USER test
+
+[2025-04-24 19:45:24] INFO: User test provided, awaiting password
+[2025-04-24 19:45:24] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:45:25] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:45:25] INFO: Successful login for user test
+[2025-04-24 19:45:25] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:45:28] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:45:28] INFO: Transfer type set to ASCII
+[2025-04-24 19:45:28] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:45:29] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:45:29] INFO: Transfer type set to Binary
+[2025-04-24 19:45:29] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:45:34] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:45:34] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:45:34] INFO: Session closed for client 5
+[2025-04-24 19:45:34] INFO: Data connection closed
+[2025-04-24 19:46:01] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:46:01] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:46:41] INFO: Client connected: 5
+[2025-04-24 19:46:41] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:46:41] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:46:42] INFO: Received from client 5: USER test
+
+[2025-04-24 19:46:42] INFO: User test provided, awaiting password
+[2025-04-24 19:46:42] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:46:43] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:46:43] INFO: Successful login for user test
+[2025-04-24 19:46:43] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:46:44] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:46:44] INFO: Transfer type set to ASCII
+[2025-04-24 19:46:44] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:46:45] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:46:45] INFO: Transfer type set to Binary
+[2025-04-24 19:46:45] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:46:56] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:46:56] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:46:56] INFO: Session closed for client 5
+[2025-04-24 19:46:56] INFO: Data connection closed
+[2025-04-24 19:47:04] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-24 19:47:04] INFO: Server listening on 192.168.210.16:21
+[2025-04-24 19:49:58] INFO: Client connected: 5
+[2025-04-24 19:49:58] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:49:58] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:49:59] INFO: Received from client 5: USER test
+
+[2025-04-24 19:49:59] INFO: User test provided, awaiting password
+[2025-04-24 19:49:59] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:50:00] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:50:00] INFO: Successful login for user test
+[2025-04-24 19:50:00] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:50:03] INFO: Received from client 5: TYPE A
+
+[2025-04-24 19:50:03] INFO: Transfer type set to ASCII
+[2025-04-24 19:50:03] INFO: Sent to client 5: 200 Type set to A.
+
+[2025-04-24 19:50:04] INFO: Received from client 5: PORT 192,168,210,14,246,254
+
+[2025-04-24 19:50:04] INFO: PORT command: IP=192.168.210.14, Port=63230
+[2025-04-24 19:50:04] INFO: Sent to client 5: 200 PORT command successful.
+
+[2025-04-24 19:50:05] INFO: Received from client 5: LIST
+
+[2025-04-24 19:50:05] INFO: Active data connection established to client port 63230
+[2025-04-24 19:50:05] INFO: Sent to client 5: 150 Opening ASCII mode data connection for file list.
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--       13 Apr 17 22:43 remote.txt
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--      227 Apr 17 23:12 remote_dir.tar.gz
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--      163 Apr 17 22:43 ._remote.txt
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--        0 Apr 18 11:38 3
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--       13 Apr 17 15:29 file.txt
+
+[2025-04-24 19:50:05] INFO: Sent data: drwxr-xr-x     4096 Apr 18 00:15 subdir
+
+[2025-04-24 19:50:05] INFO: Sent data: drwxr-xr-x     4096 Apr 17 17:07 remote_dir
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--      366 Apr 17 22:51 da.tar.gz
+
+[2025-04-24 19:50:05] INFO: Sent data: -rw-r--r--       31 Apr 18 11:20 hello.txt
+
+[2025-04-24 19:50:05] INFO: Data connection closed
+[2025-04-24 19:50:05] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-24 19:50:07] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:50:07] INFO: Transfer type set to Binary
+[2025-04-24 19:50:07] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:51:30] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:51:30] INFO: Transfer type set to Binary
+[2025-04-24 19:51:30] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:51:31] INFO: Received from client 5: PORT 192,168,210,14,246,255
+
+[2025-04-24 19:51:31] INFO: PORT command: IP=192.168.210.14, Port=63231
+[2025-04-24 19:51:31] INFO: Sent to client 5: 200 PORT command successful.
+
+[2025-04-24 19:51:32] INFO: Received from client 5: RETR da.tar.gz
+
+[2025-04-24 19:51:33] INFO: Active data connection established to client port 63231
+[2025-04-24 19:51:33] INFO: Sent to client 5: 150 Opening data connection for file transfer.
+
+[2025-04-24 19:51:33] INFO: Data connection closed
+[2025-04-24 19:51:33] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-24 19:51:33] INFO: File /home/kirill/ftp_root//da.tar.gz retrieved successfully
+[2025-04-24 19:52:09] INFO: Client 5 disconnected
+[2025-04-24 19:52:09] INFO: Session closed for client 5
+[2025-04-24 19:52:09] INFO: Data connection closed
+[2025-04-24 19:52:26] INFO: Client connected: 5
+[2025-04-24 19:52:26] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root
+[2025-04-24 19:52:26] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-24 19:52:27] INFO: Received from client 5: USER test
+
+[2025-04-24 19:52:27] INFO: User test provided, awaiting password
+[2025-04-24 19:52:27] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-24 19:52:28] INFO: Received from client 5: PASS 1234
+
+[2025-04-24 19:52:28] INFO: Successful login for user test
+[2025-04-24 19:52:28] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-24 19:53:00] INFO: Received from client 5: TYPE I
+
+[2025-04-24 19:53:00] INFO: Transfer type set to Binary
+[2025-04-24 19:53:00] INFO: Sent to client 5: 200 Type set to I.
+
+[2025-04-24 19:53:01] INFO: Received from client 5: PORT 192,168,210,14,247,4
+
+[2025-04-24 19:53:01] INFO: PORT command: IP=192.168.210.14, Port=63236
+[2025-04-24 19:53:01] INFO: Sent to client 5: 200 PORT command successful.
+
+[2025-04-24 19:53:02] INFO: Received from client 5: STOR remote_dir.tar.gz
+
+[2025-04-24 19:53:02] INFO: Active data connection established to client port 63236
+[2025-04-24 19:53:02] INFO: Sent to client 5: 150 Opening data connection for file transfer.
+
+[2025-04-24 19:53:02] INFO: Data connection closed
+[2025-04-24 19:53:02] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-24 19:53:02] INFO: File /home/kirill/ftp_root//remote_dir.tar.gz stored successfully
+[2025-04-24 19:54:16] INFO: Received from client 5: PWD
+
+[2025-04-24 19:54:16] INFO: Sent to client 5: 257 "/" is the current directory.
+
+[2025-04-24 19:55:03] INFO: Received from client 5: CWD subdir
+
+[2025-04-24 19:55:03] INFO: path: /home/kirill/ftp_root//subdir
+[2025-04-24 19:55:03] INFO: Changed directory to /subdir
+[2025-04-24 19:55:03] INFO: Sent to client 5: 250 Directory successfully changed.
+
+[2025-04-24 19:55:10] INFO: Received from client 5: PWD
+
+[2025-04-24 19:55:10] INFO: Sent to client 5: 257 "/subdir" is the current directory.
+
+[2025-04-24 19:56:01] INFO: Received from client 5: QUIT
+
+[2025-04-24 19:56:01] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-24 19:56:01] INFO: Session closed for client 5
+[2025-04-24 19:56:01] INFO: Data connection closed
+[2025-04-26 21:18:37] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:18:37] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:53:34] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:53:34] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:53:48] INFO: Client connected: 5
+[2025-04-26 21:55:28] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:55:28] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:55:33] INFO: Client connected: 5
+[2025-04-26 21:57:29] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:57:29] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:57:35] INFO: Client connected: 5
+[2025-04-26 21:58:48] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:58:48] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:58:53] INFO: Client connected: 5
+[2025-04-26 21:59:36] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 21:59:36] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 21:59:43] INFO: Client connected: 5
+[2025-04-26 22:04:47] INFO: Logger initialized, writing to ./ftp_logs.log
+[2025-04-26 22:04:47] INFO: Server listening on 127.0.0.1:21
+[2025-04-26 22:04:53] INFO: Client connected: 5
+[2025-04-26 22:04:53] INFO: Session initialized for client 5 with root_dir: /home/kirill/ftp_root, cwd: /, pasv_ip: 127.0.0.1
+[2025-04-26 22:04:53] INFO: Sent to client 5: 220 FTP Server Ready
+
+[2025-04-26 22:04:56] INFO: Received from client 5: USER test
+
+[2025-04-26 22:04:56] INFO: User test provided, awaiting password
+[2025-04-26 22:04:56] INFO: Sent to client 5: 331 User name okay, need password.
+
+[2025-04-26 22:04:59] INFO: Received from client 5: PASS 1234
+
+[2025-04-26 22:04:59] INFO: Successful login for user test
+[2025-04-26 22:04:59] INFO: Sent to client 5: 230 User logged in, proceed.
+
+[2025-04-26 22:04:59] INFO: Received from client 5: SYST
+
+[2025-04-26 22:04:59] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-26 22:04:59] INFO: Received from client 5: FEAT
+
+[2025-04-26 22:04:59] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-26 22:05:07] INFO: Received from client 5: EPSV
+
+[2025-04-26 22:05:07] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-26 22:05:07] INFO: Received from client 5: PASV
+
+[2025-04-26 22:05:07] INFO: Data connection closed
+[2025-04-26 22:05:07] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,211,131).
+
+[2025-04-26 22:05:07] INFO: PASV mode enabled, listening on port 54147
+[2025-04-26 22:05:07] INFO: Received from client 5: LIST
+
+[2025-04-26 22:05:07] INFO: Passive data connection established from client
+[2025-04-26 22:05:07] INFO: Sent to client 5: 150 Opening ASCII mode data connection for file list.
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--       13 Apr 17 22:43 remote.txt
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--      227 Apr 24 19:53 remote_dir.tar.gz
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--      163 Apr 17 22:43 ._remote.txt
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--        0 Apr 18 11:38 3
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--       13 Apr 17 15:29 file.txt
+
+[2025-04-26 22:05:07] INFO: Sent data: drwxr-xr-x     4096 Apr 18 00:15 subdir
+
+[2025-04-26 22:05:07] INFO: Sent data: drwxr-xr-x     4096 Apr 17 17:07 remote_dir
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--      366 Apr 17 22:51 da.tar.gz
+
+[2025-04-26 22:05:07] INFO: Sent data: -rw-r--r--       31 Apr 18 11:20 hello.txt
+
+[2025-04-26 22:05:07] INFO: Data connection closed
+[2025-04-26 22:05:07] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-26 22:05:14] INFO: Received from client 5: SIZE file.txt
+
+[2025-04-26 22:05:14] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-26 22:05:14] INFO: Received from client 5: PASV
+
+[2025-04-26 22:05:14] INFO: Data connection closed
+[2025-04-26 22:05:14] INFO: Sent to client 5: 227 Entering Passive Mode (127,0,0,1,212,233).
+
+[2025-04-26 22:05:14] INFO: PASV mode enabled, listening on port 54505
+[2025-04-26 22:05:14] INFO: Received from client 5: RETR file.txt
+
+[2025-04-26 22:05:14] INFO: Passive data connection established from client
+[2025-04-26 22:05:14] INFO: Sent to client 5: 150 Opening data connection for file transfer.
+
+[2025-04-26 22:05:14] INFO: Data connection closed
+[2025-04-26 22:05:14] INFO: Sent to client 5: 226 Transfer complete.
+
+[2025-04-26 22:05:14] INFO: File /home/kirill/ftp_root//file.txt retrieved successfully
+[2025-04-26 22:05:14] INFO: Received from client 5: MDTM file.txt
+
+[2025-04-26 22:05:14] INFO: Sent to client 5: 500 Command not recognized.
+
+[2025-04-26 22:05:27] INFO: Received from client 5: QUIT
+
+[2025-04-26 22:05:27] INFO: Sent to client 5: 221 Goodbye.
+
+[2025-04-26 22:05:27] INFO: Session closed for client 5
+[2025-04-26 22:05:27] INFO: Data connection closed
